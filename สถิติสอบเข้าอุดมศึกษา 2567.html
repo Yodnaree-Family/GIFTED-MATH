@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบข้อมูลการเรียนและการเข้าศึกษาต่อ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .class-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .class-card {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .class-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .class-card ul {
+            list-style-type: none;
+        }
+        
+        .class-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .highlight {
+            background-color: #e8f4fd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #1e3c72;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .university-name {
+            font-weight: bold;
+            background-color: #e8f4fd;
+        }
+        
+        .faculty-name {
+            padding-left: 20px;
+        }
+        
+        .stats-container {
+            overflow-x: auto;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        
+        .tab.active {
+            background: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .class-comparison {
+                flex-direction: column;
+            }
+            
+            .class-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ระบบข้อมูลการเรียนและการเข้าศึกษาต่อ</h1>
+            <p class="subtitle">เปรียบเทียบหลักสูตรห้องเรียนปกติวิทย์-คณิต, GM และ SMTE</p>
+        </header>
+        
+        <section class="section">
+            <h2>เปรียบเทียบการเรียนคณิตศาสตร์</h2>
+            <div class="class-comparison">
+                <div class="class-card">
+                    <h3>ห้องเรียนปกติวิทย์-คณิต</h3>
+                    <ul>
+                        <li>เรียนวิชาคณิตศาสตร์ G ภาคเรียน</li>
+                        <li>คณิตศาสตร์รายวิชาพื้นฐาน: 1.0 หน่วยกิตต่อภาคเรียน</li>
+                        <li>คณิตศาสตร์รายเพิ่มเติม: 1.5 หน่วยกิตต่อภาคเรียน</li>
+                        <li>คณิตศาสตร์เพิ่มพูนประสบการณ์: 1.0 หน่วยกิตต่อภาคเรียน</li>
+                    </ul>
+                </div>
+                
+                <div class="class-card">
+                    <h3>GM</h3>
+                    <ul>
+                        <li>เรียนวิชาคณิตศาสตร์ G ภาคเรียน</li>
+                        <li>คณิตศาสตร์รายวิชาพื้นฐาน: 1.0 หน่วยกิตต่อภาคเรียน</li>
+                        <li>คณิตศาสตร์รายเพิ่มเติม: 1.5 หน่วยกิตต่อภาคเรียน</li>
+                        <li>คณิตศาสตร์เพิ่มพูนประสบการณ์: 1.0 หน่วยกิตต่อภาคเรียน</li>
+                    </ul>
+                </div>
+                
+                <div class="class-card">
+                    <h3>SMTE</h3>
+                    <ul>
+                        <li>เรียนวิชาคณิตศาสตร์ G ภาคเรียน</li>
+                        <li>คณิตศาสตร์รายวิชาพื้นฐาน: 1.0 หน่วยกิตต่อภาคเรียน</li>
+                        <li>คณิตศาสตร์รายเพิ่มเติม: 1.5 หน่วยกิตต่อภาคเรียน</li>
+                        <li>เรียนวิชาทฤษฎีจำนวน: 0.5 หน่วยกิตใน ม.4 ภาคเรียนที่ 1</li>
+                        <li>เรียนวิชาทักษะพื้นฐานการพิสูจน์: 0.5 หน่วยกิตใน ม.5 ภาคเรียนที่ 1</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>ข้อสังเกต:</strong> ห้องเรียนปกติวิทย์-คณิตและ GM มีโครงสร้างการเรียนคณิตศาสตร์เหมือนกัน ในขณะที่ SMTE มีวิชาเพิ่มเติมคือ ทฤษฎีจำนวนและทักษะพื้นฐานการพิสูจน์</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>สถิติการเข้าศึกษาต่อในมหาวิทยาลัย</h2>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="medical">คณะแพทยศาสตร์และทันตแพทยศาสตร์</div>
+                <div class="tab" data-tab="other">คณะอื่นๆ</div>
+            </div>
+            
+            <div class="tab-content active" id="medical-tab">
+                <div class="stats-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>มหาวิทยาลัย / คณะ</th>
+                                <th>601</th>
+                                <th>602</th>
+                                <th>603</th>
+                                <th>604</th>
+                                <th>605</th>
+                                <th>606</th>
+                                <th>607</th>
+                                <th>608</th>
+                                <th>609</th>
+                                <th>610</th>
+                                <th>รวม</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="university-name">
+                                <td>จุฬาลงกรณ์มหาวิทยาลัย</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>6</td>
+                                <td>17</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>แพทยศาสตร์</td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>ทันตแพทยศาสตร์</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>สัตวแพทยศาสตร์</td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr class="university-name">
+                                <td>มหาวิทยาลัยมหิดล</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>15</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>แพทยศาสตร์ โรงพยาบาลรามาธิบดี</td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>แพทยศาสตร์ ศิริราชพยาบาล</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>3</td>
+                                <td></td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>4</td>
+                            </tr>
+                            <!-- เพิ่มข้อมูลอื่นๆ ตามไฟล์ที่ให้มา -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="other-tab">
+                <div class="stats-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>มหาวิทยาลัย / คณะ</th>
+                                <th>606</th>
+                                <th>608</th>
+                                <th>รวม</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="university-name">
+                                <td>จุฬาลงกรณ์มหาวิทยาลัย</td>
+                                <td>14</td>
+                                <td>8</td>
+                                <td>22</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>คณะเภสัชศาสตร์</td>
+                                <td>4</td>
+                                <td></td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>คณะพาณิชย์ศาสตร์และการบัญชี</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>5</td>
+                            </tr>
+                            <tr class="faculty-name">
+                                <td>วิศวกรรมศาสตร์</td>
+                                <td>3</td>
+                                <td></td>
+                                <td>3</td>
+                            </tr>
+                            <!-- เพิ่มข้อมูลอื่นๆ ตามไฟล์ที่ให้มา -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>ข้อมูลอ้างอิงจากรายงานสถิติการเข้าศึกษาต่อของนักเรียน</p>
+            <p>© 2023 ระบบข้อมูลการเรียนและการเข้าศึกษาต่อ</p>
+        </footer>
+    </div>
+
+    <script>
+        // ฟังก์ชันสำหรับการเปลี่ยนแท็บ
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // ลบคลาส active จากแท็บทั้งหมด
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // เพิ่มคลาส active ให้แท็บที่คลิก
+                tab.classList.add('active');
+                
+                // ซ่อนเนื้อหาทั้งหมด
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // แสดงเนื้อหาของแท็บที่เลือก
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
