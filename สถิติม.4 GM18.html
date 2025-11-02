@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุปข้อมูลการเรียนต่อ ม.3</title>
+    <!-- โหลด Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- โหลดฟอนต์ Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ใช้ฟอนต์ Sarabun สำหรับภาษาไทย และ Inter เป็น fallback */
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+        }
+        /* สีหลัก (ปรับเป็นโทนสีชมพู-ม่วง) */
+        .bg-primary { background-color: #a21caf; } /* fuchsia-700 */
+        .text-primary { color: #a21caf; }
+        .border-primary { border-color: #a21caf; }
+        
+        .bg-secondary { background-color: #fce7f3; } /* pink-50 */
+        .text-secondary { color: #db2777; } /* pink-600 */
+
+        /* การ์ด */
+        .info-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #f3e8ff; /* purple-50 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-3xl p-4 md:p-8">
+
+        <!-- หัวข้อหลัก -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-primary">สรุปข้อมูลการเรียนต่อ ม.3 ขึ้น ม.4 </h1>
+            <p class="text-lg text-gray-600 mt-2">จากข้อมูลนักเรียน 3 ห้อง (3.3, 3.4, 3.5) (รุ่น SW123)</p>
+        </header>
+
+        <!-- การ์ดสรุปภาพรวม -->
+        <div class="info-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">ภาพรวมข้อมูล</h2>
+            <div class="flex flex-col md:flex-row justify-around text-center gap-4">
+                <!-- นักเรียนทั้งหมด -->
+                <div class="flex-1 p-4 bg-purple-50 rounded-lg">
+                    <div class="text-5xl font-bold text-purple-700">102</div>
+                    <div class="text-lg font-semibold text-gray-700 mt-2">นักเรียนทั้งหมด</div>
+                </div>
+                <!-- เรียนต่อสตรีวิทยา -->
+                <div class="flex-1 p-4 bg-pink-50 rounded-lg">
+                    <div class="text-5xl font-bold text-pink-600">55</div>
+                    <div class="text-lg font-semibold text-gray-700 mt-2">เรียนต่อสตรีวิทยา</div>
+                </div>
+                <!-- เรียนต่อ รร. อื่น -->
+                <div class="flex-1 p-4 bg-blue-50 rounded-lg">
+                    <div class="text-5xl font-bold text-blue-600">47</div>
+                    <div class="text-lg font-semibold text-gray-700 mt-2">เรียนต่อ รร. อื่น</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- การ์ดสถิติแยกตามห้องเรียน (กราฟแท่ง) -->
+        <div class="info-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">สถิติแยกตามห้องเรียน</h2>
+            
+            <div class="space-y-6">
+                
+                <!-- ห้อง 3.3 -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-semibold text-gray-700">ห้อง 3.3</span>
+                        <span class="text-sm text-gray-500">รวม 30 คน</span>
+                    </div>
+                    <div class="w-full flex h-8 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                        <!-- สตรีวิทยา (20 คน) -->
+                        <div class="flex items-center justify-center text-xs font-medium text-white bg-pink-500" style="width: 66.67%;" title="สตรีวิทยา (20 คน)">
+                            20
+                        </div>
+                        <!-- รร. อื่น (10 คน) -->
+                        <div class="flex items-center justify-center text-xs font-medium text-white bg-blue-500" style="width: 33.33%;" title="รร. อื่น (10 คน)">
+                            10
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ห้อง 3.4 -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-semibold text-gray-700">ห้อง 3.4</span>
+                        <span class="text-sm text-gray-500">รวม 36 คน</span>
+                    </div>
+                    <div class="w-full flex h-8 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                        <!-- สตรีวิทยา (20 คน) -->
+                        <div class="flex items-center justify-center text-xs font-medium text-white bg-pink-500" style="width: 55.56%;" title="สตรีวิทยา (20 คน)">
+                            20
+                        </div>
+                        <!-- รร. อื่น (16 คน) -->
+                        <div class="flex items-center justify-center text-xs font-medium text-white bg-blue-500" style="width: 44.44%;" title="รร. อื่น (16 คน)">
+                            16
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ห้อง 3.5 -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-semibold text-gray-700">ห้อง 3.5</span>
+                        <span class="text-sm text-gray-500">รวม 36 คน</span>
+                    </div>
+                    <div class="w-full flex h-8 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                        <!-- สตรีวิทยา (15 คน) -->
+                        <div class="flex items-center justify-center text-xs font-medium text-white bg-pink-500" style="width: 41.67%;" title="สตรีวิทยา (15 คน)">
+                            15
+                        </div>
+                        <!-- รร. อื่น (21 คน) -->
+                        <div class="flex items-center justify-center text-xs font-medium text-white bg-blue-500" style="width: 58.33%;" title="รร. อื่น (21 คน)">
+                            21
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Legend (คำอธิบาย) -->
+            <div class="flex justify-center gap-4 md:gap-6 mt-6 pt-4 border-t border-gray-100 flex-wrap">
+                <div class="flex items-center">
+                    <span class="h-4 w-4 rounded bg-pink-500 mr-2 flex-shrink-0"></span>
+                    <span class="text-sm text-gray-600">เรียนต่อสตรีวิทยา</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="h-4 w-4 rounded bg-blue-500 mr-2 flex-shrink-0"></span>
+                    <span class="text-sm text-gray-600">เรียนต่อ รร. อื่น</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- การ์ดรายละเอียดเจาะลึกรายห้อง (แบบพับได้) -->
+        <div class="info-card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">รายละเอียดเจาะลึกรายห้อง</h2>
+
+            <!-- ห้อง 3.3 -->
+            <details class="mb-4 p-3 rounded-lg bg-gray-50 border">
+                <summary class="font-bold text-lg text-primary cursor-pointer hover:opacity-80 transition-opacity">
+                    ห้อง 3.3 (รวม 30 คน)
+                </summary>
+                <div class="pl-4 pt-3 flex flex-col md:flex-row gap-6">
+                    <!-- Column 1: SW -->
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-secondary mb-2">เรียนต่อสตรีวิทยา (20 คน)</h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Gifted Math Inten: 6</li>
+                            <li>Gifted Math: 1</li>
+                            <li>ห้องวิทย์-คณิต Inten: 6</li>
+                            <li>ห้องวิทย์-คณิต: 2</li>
+                            <li>ห้องคิดคำนวณ Inten: 1</li>
+                            <li>ห้องภาษา Inten: 1</li>
+                            <li>SMTE: 3</li>
+                        </ul>
+                    </div>
+                    <!-- Column 2: Others -->
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-blue-700 mb-2">เรียนต่อ รร. อื่น (10 คน)</h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>เตรียมอุดม: 6</li>
+                            <li>มหิดลวิทยานุสรณ์: 1</li>
+                            <li>จภ. ปทุม: 1</li>
+                            <li>มศว. ประสานมิตร: 1</li>
+                            <li>Kosen: 1</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ห้อง 3.4 -->
+            <details class="mb-4 p-3 rounded-lg bg-gray-50 border">
+                <summary class="font-bold text-lg text-primary cursor-pointer hover:opacity-80 transition-opacity">
+                    ห้อง 3.4 (รวม 36 คน)
+                </summary>
+                <div class="pl-4 pt-3 flex flex-col md:flex-row gap-6">
+                    <!-- Column 1: SW -->
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-secondary mb-2">เรียนต่อสตรีวิทยา (20 คน)</h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Gifted Math: 12</li>
+                            <li>EP: 1</li>
+                            <li>ห้องวิทย์-คณิต: 7</li>
+                        </ul>
+                    </div>
+                    <!-- Column 2: Others -->
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-blue-700 mb-2">เรียนต่อ รร. อื่น (16 คน)</h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>เตรียมอุดม: 8</li>
+                            <li>มศว. ประสานมิตร: 5</li>
+                            <li>วมว. ดรุณ: 1</li>
+                            <li>วมว. มช.: 1</li>
+                            <li>สามเสน MSEP: 1</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ห้อง 3.5 -->
+            <details class="p-3 rounded-lg bg-gray-50 border">
+                <summary class="font-bold text-lg text-primary cursor-pointer hover:opacity-80 transition-opacity">
+                    ห้อง 3.5 (รวม 36 คน)
+                </summary>
+                <div class="pl-4 pt-3 flex flex-col md:flex-row gap-6">
+                    <!-- Column 1: SW -->
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-secondary mb-2">เรียนต่อสตรีวิทยา (15 คน)</h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Gifted Math: 7</li>
+                            <li>ห้องวิทย์-คณิต: 5</li>
+                            <li>SMTE: 1</li>
+                            <li>ห้องคิดคำนวณ: 1</li>
+                            <li>ภาษาศาสตร์: 1</li>
+                        </ul>
+                    </div>
+                    <!-- Column 2: Others -->
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-blue-700 mb-2">เรียนต่อ รร. อื่น (21 คน)</h4>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>เตรียมอุดม: 9</li>
+                            <li>มหิดลวิทยานุสรณ์: 3</li>
+                            <li>วมว. ดรุณ: 3</li>
+                            <li>สามเสน MSEP: 2</li>
+                            <li>วมว. กำแพงแสน: 1</li>
+                            <li>สามเสน EP: 1</li>
+                            <li>Mastery School: 1</li>
+                            <li>สอบเทียบมหาลัย: 1</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- แบ่ง 2 คอลัมน์สำหรับรายละเอียด -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- การ์ด: เรียนต่อสตรีวิทยา -->
+            <div class="info-card">
+                <h2 class="text-2xl font-bold text-secondary mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.496 2.132a1 1 0 00-.992 0l-7 4A1 1 0 003 7v10a1 1 0 00.707.965l7 3a1 1 0 00.586 0l7-3A1 1 0 0017 17V7a1 1 0 00-.504-.868l-7-4zM10 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" /></svg>
+                    เรียนต่อสตรีวิทยา (55 คน)
+                </h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex justify-between items-center py-2 border-b border-pink-100">
+                        <span class="font-medium">Gifted Math (รวม Inten)</span>
+                        <span class="font-bold text-xl text-secondary">26</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-pink-100">
+                        <span class="font-medium">ห้องวิทย์-คณิต (รวม Inten)</span>
+                        <span class="font-bold text-xl text-secondary">20</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-pink-100">
+                        <span class="font-medium">SMTE</span>
+                        <span class="font-bold text-xl text-secondary">4</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-pink-100">
+                        <span class="font-medium">ห้องคิดคำนวณ (รวม Inten)</span>
+                        <span class="font-bold text-xl text-secondary">2</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-pink-100">
+                        <span class="font-medium">ห้องภาษา (รวม Inten/ภาษาศาสตร์)</span>
+                        <span class="font-bold text-xl text-secondary">2</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2">
+                        <span class="font-medium">EP</span>
+                        <span class="font-bold text-xl text-secondary">1</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- การ์ด: เรียนต่อโรงเรียนอื่น -->
+            <div class="info-card">
+                <h2 class="text-2xl font-bold text-blue-700 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                    เรียนต่อโรงเรียนอื่น (47 คน)
+                </h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span class="font-medium">เตรียมอุดม</span>
+                        <span class="font-bold text-xl text-blue-700">23</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span class="font-medium">มศว. ประสานมิตร</span>
+                        <span class="font-bold text-xl text-blue-700">6</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span class="font-medium">วมว. (รวม 3 แห่ง)</span>
+                        <span class="font-bold text-xl text-blue-700">6</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span class="font-medium">มหิดลวิทยานุสรณ์</span>
+                        <span class="font-bold text-xl text-blue-700">4</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span class="font-medium">สามเสน (MSEP/EP)</span>
+                        <span class="font-bold text-xl text-blue-700">4</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span class="font-medium">อื่น ๆ (จภ, Kosen, Mastery)</span>
+                        <span class="font-bold text-xl text-blue-700">3</span>
+                    </li>
+                    <li class="flex justify-between items-center py-2">
+                        <span class="font-medium">สอบเทียบเข้ามหาวิทยาลัย</span>
+                        <span class="font-bold text-xl text-blue-700">1</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- หมายเหตุ -->
+        <footer class="text-center mt-8">
+            <p class="text-sm text-gray-500">*ข้อมูลนี้รวบรวมจากผู้ปกครองห้อง 3.3, 3.4, และ 3.5</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
+
+
